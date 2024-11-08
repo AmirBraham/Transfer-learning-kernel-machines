@@ -16,7 +16,7 @@ def main():
     SEED = 42
     torch.manual_seed(SEED)
     np.random.seed(SEED)
-
+    print(torch.device("cuda" if torch.cuda.is_available() else "cpu"))
     # Create directories to save models and results if they don't exist
     os.makedirs('saved_models', exist_ok=True)
     os.makedirs('results', exist_ok=True)
@@ -31,7 +31,7 @@ def main():
     X_test = to_grayscale(X_test)
 
     # List of subset sizes to test
-    subset_sizes = [10,50,100,200,300,500,700]
+    subset_sizes = [1000]
     results = []
 
     for subset_size in subset_sizes:

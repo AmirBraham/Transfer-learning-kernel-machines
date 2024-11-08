@@ -43,7 +43,7 @@ def get_mnist_data(batch_size=1000, num_workers=2):
     """
     transform = transforms.Compose([
         transforms.Resize((32, 32)),
-        transforms.Grayscale(num_output_channels=3),  # Convert to 3 channels
+        transforms.Grayscale(num_output_channels=1),  # Convert to 3 channels
         transforms.ToTensor(),
     ])
 

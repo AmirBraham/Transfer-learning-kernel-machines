@@ -7,6 +7,13 @@ import kernel as k
 import krr
 import os
 
+
+
+def to_grayscale(X):
+    # Average over the color channels to convert to grayscale
+    return X.mean(axis=-1, keepdims=True)
+
+
 def main():
     SEED = 42
     torch.manual_seed(SEED)
@@ -21,11 +28,17 @@ def main():
     X_test, y_test = d.normalized_numpy_data(test_loader, num_classes=10)
 
     # For computational feasibility, use a subset (adjust as needed)
-    X_train = X_train[:1]
-    y_train = y_train[:1]
-    X_test = X_test[:1]
-    y_test = y_test[:1]
+    X_train = X_train[:100]
+    y_train = y_train[:100]
+    X_test = X_test[:10]
+    y_test = y_test[:10]
 
+    # Convert to grayscale
+    X_train = to_grayscale(X_train)
+    X_test = to_grayscale(X_test)
+
+    
+    
     print(f"Shape of X_train: {X_train.shape}")  # Should be (5000, 32, 32, 3)
     print(f"Shape of y_train: {y_train.shape}")  # Should be (5000, 10)
     print(f"Shape of X_test: {X_test.shape}")    # Should be (1000, 32, 32, 3)

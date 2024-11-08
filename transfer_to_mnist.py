@@ -29,10 +29,14 @@ def main():
         print("Trained KRR weights not found. Please run 'train_cifar_model.py' first.")
         return
 
-    # Load MNIST data
+    # Load MNIST data in grayscale
     mnist_train_loader, mnist_test_loader = d.get_mnist_data(batch_size=1000)
     X_mnist_train, y_mnist_train = d.normalized_numpy_data(mnist_train_loader, num_classes=10)
     X_mnist_test, y_mnist_test = d.normalized_numpy_data(mnist_test_loader, num_classes=10)
+
+    # Ensure data is grayscale: (batch_size, height, width, 1)
+    X_mnist_train = X_mnist_train[..., np.newaxis] if X_mnist_train.ndim == 3 else X_mnist_train
+    X_mnist_test = X_mnist_test[..., np.newaxis] if X_mnist_test.ndim == 3 else X_mnist_test
 
     # For computational feasibility, use subsets (adjust as needed)
     X_mnist_train = X_mnist_train[:1]
@@ -40,8 +44,8 @@ def main():
     X_mnist_test = X_mnist_test[:1]
     y_mnist_test = y_mnist_test[:1]
 
-    print(f"Shape of MNIST training data: {X_mnist_train.shape}")  # (1000, 32, 32, 3)
-    print(f"Shape of MNIST test data: {X_mnist_test.shape}")      # (1000, 32, 32, 3)
+    print(f"Shape of MNIST training data: {X_mnist_train.shape}")  # (1000, 28, 28, 1)
+    print(f"Shape of MNIST test data: {X_mnist_test.shape}")      # (1000, 28, 28, 1)
 
     # Define the kernel function
     kernel_fn = k.conv_net()

@@ -10,7 +10,7 @@ Transfer learning is a vital machine learning technique that leverages knowledge
 This project introduces a framework for transfer learning with kernel methods, utilizing two key operations:
 - **Projection**: Applying the trained source model to generate features for the target task.
 - **Translation**: Adjusting the source model with a correction term to fit the target task.
-
+Unfortunately , we were only able to use the projection method 
 ## File Structure
 
 The repository is organized as follows:

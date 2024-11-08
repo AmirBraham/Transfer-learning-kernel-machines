@@ -69,6 +69,12 @@ Installing Jax is a bit tricky so try to find a version that works depending on 
 - **Projection**: The `projection.py` module handles the transfer of predictions from the source dataset (CIFAR-10) to the target dataset (MNIST) using Kernel Ridge Regression.
 - **Kernel Methods**: The `kernel.py` script defines the convolutional network architecture, leveraging `neural-tangents` to compute kernel functions efficiently.
 
+
+Some figures :
+
+<img width="765" alt="Screenshot 2024-11-08 at 12 17 42" src="https://github.com/user-attachments/assets/e5511036-a7d3-4781-b510-6835b339ab05">
+<img width="769" alt="Screenshot 2024-11-08 at 12 13 48" src="https://github.com/user-attachments/assets/d797620f-efa5-436b-b173-6608e270a78a">
+
 ## References
 https://www.nature.com/articles/s41467-023-41215-8
 https://github.com/uhlerlab/kernel_tf

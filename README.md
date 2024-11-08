@@ -70,9 +70,8 @@ Installing Jax is a bit tricky so try to find a version that works depending on 
 - **Kernel Methods**: The `kernel.py` script defines the convolutional network architecture, leveraging `neural-tangents` to compute kernel functions efficiently.
 
 ## References
-
-Please refer to the paper by Radhakrishnan et al. (2023) for a detailed theoretical background and methodology. The reference is included in `sample.bib` for use in academic reports.
-
+https://www.nature.com/articles/s41467-023-41215-8
+https://github.com/uhlerlab/kernel_tf
 ---
 
 We hope this project inspires further exploration of transfer learning with kernel methods. Contributions and feedback are welcome!

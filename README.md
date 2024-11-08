@@ -1,5 +1,3 @@
-Here is a draft for your `README.md` file:
-
 ```markdown
 # Transfer Learning with Kernel Methods
 

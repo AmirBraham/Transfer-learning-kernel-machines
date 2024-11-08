@@ -27,7 +27,6 @@ The repository is organized as follows:
 ├── transfer_to_mnist.py         # Script to transfer the CIFAR-10 model to MNIST
 ├── utils.py                     # Helper functions for data normalization and preprocessing
 ├── README.md                    # Project documentation
-└── sample.bib                   # Bibliography file for LaTeX report (if applicable)
 ```
 
 ## How to Run the Project
@@ -44,6 +43,8 @@ You can install the required packages using:
 ```bash
 pip install numpy scikit-learn neural-tangents matplotlib
 ```
+
+Installing Jax is a bit tricky so try to find a version that works depending on your version of CUDA
 
 ### Running the Project
 

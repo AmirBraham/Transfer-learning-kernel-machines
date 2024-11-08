@@ -22,7 +22,7 @@ def main():
     os.makedirs('results', exist_ok=True)
 
     # Load CIFAR-10 data
-    train_loader, test_loader = d.get_cifar10_data(batch_size=1000)
+    train_loader, test_loader = d.get_cifar10_data(batch_size=100)
     X_train, y_train = d.normalized_numpy_data(train_loader, num_classes=10)
     X_test, y_test = d.normalized_numpy_data(test_loader, num_classes=10)
 
@@ -31,7 +31,7 @@ def main():
     X_test = to_grayscale(X_test)
 
     # List of subset sizes to test
-    subset_sizes = [1000]
+    subset_sizes = [200]
     results = []
 
     for subset_size in subset_sizes:
@@ -49,7 +49,7 @@ def main():
         # Compute the kernel matrix for training data
         print("Computing training kernel matrix...")
         K_train = kernel_fn(X_train_subset, X_train_subset, 'ntk')
-        K_train = np.array(K_train, dtype=np.float32)
+        K_train = np.array(K_train, dtype=np.float16) # changed from float32 to float16
         print(f"Training kernel matrix shape: {K_train.shape}")
 
         # Train Kernel Ridge Regression model
@@ -66,7 +66,7 @@ def main():
         # Compute the kernel matrix for test data
         print("Computing test kernel matrix...")
         K_test = kernel_fn(X_test_subset, X_train_subset, 'ntk')
-        K_test = np.array(K_test, dtype=np.float32)
+        K_test = np.array(K_test, dtype=np.float16) # changed from float32 to float16
         print(f"Test kernel matrix shape: {K_test.shape}")
 
         # Make predictions on test data

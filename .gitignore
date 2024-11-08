@@ -5,3 +5,5 @@ saved_models/
 data/
 results/
 __pycache__/
+
+saved_results/
